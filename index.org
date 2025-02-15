@@ -41,8 +41,8 @@ The table contains the following columns:
 - url (org link)
 - title
 
-Every time the function youtube-update-org-playlist is run, the list is expanded
-from current offset. Previous lines remain as-is. You can use the first column to take notes.
+Every time the function ~youtube-update-org-playlist~ is run, the list is expanded
+with new videos. Previous lines remain as-is. You can use the second column to take notes.
 
 An optional offset indicates where to start the list from (the script does not verify
 the contents of the playlist, it simply adds new videos based on the offset and current size of the table)
@@ -52,6 +52,8 @@ the contents of the playlist, it simply adds new videos based on the offset and 
 :CREATED:  2025-02-15 08:45:15
 :END:
 
+Note that this list appears reversed. This is because by default, when a new video is added to
+a playlist, it appears at the top. In this case Rainer has inverted that order.
 
 #+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE:offset=0
 |  0 |   |   |  2:53 | [[https://www.youtube.com/watch?v=EFKdMctqELk][EFKdMctqELk]] | My course is online on Udemy                              |
@@ -102,7 +104,7 @@ the contents of the playlist, it simply adds new videos based on the offset and 
 
 You can start a playlist from a given offset (zero based)
 
-*** Example 2: Prot's youtube videos since  125 video
+*** Example 2: Prot's youtube videos since 125th video
 :PROPERTIES:
 :CREATED:  2025-02-15 08:45:15
 :END:
@@ -153,5 +155,6 @@ starts the line. Otherwise it is ignored.
 :CREATED:  2025-02-15 08:18:59
 :END:
 
-If you use offset and a video is deleted, no verification is made, and might result in skipping one video.
+- If you use offset and a video is deleted, no verification is made, and might result in skipping one video.
 
+- Allow for a "reversed" option
