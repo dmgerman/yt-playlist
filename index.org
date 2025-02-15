@@ -30,7 +30,7 @@ Use the following (the # must be in the first column)
 
 Where the offset indicates the first video to include in the list (in case you want to skip some).
 
-After calling /yt-playlist-update-buffer/ a table is created for each  instance of /#+YOUTUBE_UPDATE:/
+After calling ~yt-playlist-update-buffer~ a table is created for each  instance of ~#+YOUTUBE_UPDATE:~
 
 The table contains the following columns:
 
@@ -113,27 +113,27 @@ You can start a playlist from a given offset (zero based)
 
 1. You need to have [[https://github.com/yt-dlp/yt-dlp][yt-dlp]] installed.
 
-2. Install the python script /yt-playlist-update-org.py/ in your prefer location.
+2. Install the python script ~yt-playlist-update-org.py~ in your prefer location.
 
 3. Install this module in your preferred location
 
-4. Add the following to your init. make sure that the variable /yt-playlist-update-org-playlist/
+4. Add the following to your init. make sure that the variable ~yt-playlist-update-org-playlist~
    points to the correct location of your script
 
-#+begin_src emacs-lisp   :exports both
-(require 'yt-playlist-update)
-(setq  yt-playlist-update-org-script (expand-file-name "~/bin/yt-playlist-update-org.py"))
-   #+end_src
+  #+begin_src emacs-lisp   :exports both
+ (require 'yt-playlist-update)
+ (setq  yt-playlist-update-org-script (expand-file-name "~/bin/yt-playlist-update-org.py"))
+    #+end_src
 
 5. Create an org file to test and add the following line. Make sure that the string #+YOUTUBE_UPDATE: 
 starts the line. Otherwise it is ignored.
 
-#+begin_example
+ #+begin_example
  #+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PL8Bwba5vnQK14z96Gil86pLMDO2GnOhQ6:offset=125
-#+end_example
+ #+end_example
 
 
-6. Run the command /yk-playlist-update-buffer/
+6. Run the emacs command ~yk-playlist-update-buffer~
 
 
 ** Potential improvements
