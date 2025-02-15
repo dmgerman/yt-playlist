@@ -1,0 +1,144 @@
+:PROPERTIES:
+:ID:       id-20250215-065829
+:TRIGGER:  org-gtd-next-project-action org-gtd-update-project-task!
+:END:
+
+
+* Keeping a youtube playlist table up-to-date
+:PROPERTIES:
+:CREATED:  2025-02-15 06:58:29
+:END:
+
+Youtube's interface is horrible if you want to keep track of a playlist
+
+This is a small script that helps updating a playlist as an org table.
+
+I have successfully used to watch playlists in order.
+
+** Maintaining a playlist
+:PROPERTIES:
+:CREATED:  2025-02-15 06:59:44
+:END:
+
+Use the following (the # must be in the first column)
+
+#+begin_example
+ #+YOUTUBE_UPDATE: <playlisturl>:offset=<integer>
+#+end_example
+
+Where the offset indicates the first video to include in the list (in case you want to skip some).
+
+The table contains the following columns:
+
+- index (zero based)
+- user column
+- date being published (does not seem to work for most videos)
+- duration
+- url (org link)
+- title
+
+Every time the function youtube-update-org-playlist is run, the list is expanded
+from current offset (this means previous lines remain as-is).
+
+An optional offset indicates where to start the list from (the script does not verify
+the contents of the playlist, it simply adds new videos based on the offset and current size of the table)
+
+#+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE:offset=0
+|  0 |   |   |  2:53 | [[https://www.youtube.com/watch?v=EFKdMctqELk][EFKdMctqELk]] | My course is online on Udemy                              |
+|  1 |   |   | 16:03 | [[https://www.youtube.com/watch?v=be8TC-i-NpE][be8TC-i-NpE]] | Orgmode-TV: How do I plan my days                         |
+|  2 |   |   | 11:38 | [[https://www.youtube.com/watch?v=l0SILI0U4BE][l0SILI0U4BE]] | Orgmode TV - A new episode                                |
+|  3 |   |   | 13:02 | [[https://www.youtube.com/watch?v=NqPhz8aqk2U][NqPhz8aqk2U]] | Orgmode TV - News about the future plans                  |
+|  4 |   |   |  8:00 | [[https://www.youtube.com/watch?v=odOKnNDKSIs][odOKnNDKSIs]] | OrgMode - A third approach to goal setting & tracking     |
+|  5 |   |   | 20:38 | [[https://www.youtube.com/watch?v=APhhHCBI8xc][APhhHCBI8xc]] | OrgMode E07S05: Goal setting & Goal Tracking              |
+|  6 |   |   | 14:51 | [[https://www.youtube.com/watch?v=E-SZHFtiGGI][E-SZHFtiGGI]] | OrgMode E07S04: Source code in OrgMode                    |
+|  7 |   |   | 12:18 | [[https://www.youtube.com/watch?v=cIzzjSaq2N8][cIzzjSaq2N8]] | OrgMode E07S03: Google Calendar integration               |
+|  8 |   |   | 21:34 | [[https://www.youtube.com/watch?v=-2RXhPV_zgc][-2RXhPV_zgc]] | Orgmode E07S02: Presenting my system                      |
+|  9 |   |   | 12:28 | [[https://www.youtube.com/watch?v=X6rNQPlxbhM][X6rNQPlxbhM]] | OrgMode E07S01: Bulk agenda actions                       |
+| 10 |   |   | 12:37 | [[https://www.youtube.com/watch?v=acj3NhXlnnk][acj3NhXlnnk]] | OrgMode E06S05: Tracking habits                           |
+| 11 |   |   | 13:11 | [[https://www.youtube.com/watch?v=ldTx_CB5cRc][ldTx_CB5cRc]] | OrgMode E06S04: Dynamic blocks                            |
+| 12 |   |   | 14:03 | [[https://www.youtube.com/watch?v=ecRYNWtCvbs][ecRYNWtCvbs]] | OrgMode E06S03: Publishing                                |
+| 13 |   |   | 12:35 | [[https://www.youtube.com/watch?v=cTrizroQeL8][cTrizroQeL8]] | OrgMode E06S02: Advanced exporting                        |
+| 14 |   |   | 10:11 | [[https://www.youtube.com/watch?v=INE7n8EscvQ][INE7n8EscvQ]] | OrgMode E06S01: Exporting                                 |
+| 15 |   |   | 12:15 | [[https://www.youtube.com/watch?v=JHKrTsiz4JU][JHKrTsiz4JU]] | OrgMode E05S05: Tables                                    |
+| 16 |   |   | 11:56 | [[https://www.youtube.com/watch?v=kPr0KMR1YdQ][kPr0KMR1YdQ]] | OrgMode E05S04: Priorities                                |
+| 17 |   |   | 14:33 | [[https://www.youtube.com/watch?v=KMlp9HUJI3s][KMlp9HUJI3s]] | OrgMode E05S03: Attachments                               |
+| 18 |   |   | 14:58 | [[https://www.youtube.com/watch?v=0TS3pTNGFIA][0TS3pTNGFIA]] | OrgMode E05S02: Linking (external)                        |
+| 19 |   |   | 10:11 | [[https://www.youtube.com/watch?v=eoIfLS4zMa8][eoIfLS4zMa8]] | OrgMode E05S01: Linking (internal)                        |
+| 20 |   |   |  9:33 | [[https://www.youtube.com/watch?v=BeAtCVZpHCg][BeAtCVZpHCg]] | OrgMode E04S05: Effort estimates                          |
+| 21 |   |   |  6:36 | [[https://www.youtube.com/watch?v=BfEAiWe3uvc][BfEAiWe3uvc]] | OrgMode E04S04: Column view                               |
+| 22 |   |   | 12:02 | [[https://www.youtube.com/watch?v=uVv49htxuS8][uVv49htxuS8]] | Orgmode E04S03: Clocking (aka time tracking)              |
+| 23 |   |   |  7:30 | [[https://www.youtube.com/watch?v=lxkPeJS6keY][lxkPeJS6keY]] | OrgMode E04S02: Timers                                    |
+| 24 |   |   |  8:21 | [[https://www.youtube.com/watch?v=9hxEEbUWJYA][9hxEEbUWJYA]] | OrgMode E04S01: Ordered tasks                             |
+| 25 |   |   |  6:23 | [[https://www.youtube.com/watch?v=Y3g8d-IwIT4][Y3g8d-IwIT4]] | OrgMode E03S05: Archiving to different files              |
+| 26 |   |   | 10:24 | [[https://www.youtube.com/watch?v=ABrv_vnVbkk][ABrv_vnVbkk]] | OrgMode E03S04: The :PROPERTIES: drawer                   |
+| 27 |   |   | 15:09 | [[https://www.youtube.com/watch?v=Af4NVJbNAB4][Af4NVJbNAB4]] | OrgMode E03S03: The first capture template(s)             |
+| 28 |   |   | 11:53 | [[https://www.youtube.com/watch?v=ECWtf6mAi9k][ECWtf6mAi9k]] | Orgmode E03S02: Splitting your system up to several files |
+| 29 |   |   |  8:29 | [[https://www.youtube.com/watch?v=R4QSTDco_w8][R4QSTDco_w8]] | OrgMode E03S01: Automatic logging of status changes       |
+| 30 |   |   |  7:04 | [[https://www.youtube.com/watch?v=5M8L7vtWY1k][5M8L7vtWY1k]] | OrgMode E02S05: Archiving                                 |
+| 31 |   |   | 13:21 | [[https://www.youtube.com/watch?v=nUvdddKZQzs][nUvdddKZQzs]] | Orgmode E02S04: Drawers, Logging & quick notes            |
+| 32 |   |   |  5:22 | [[https://www.youtube.com/watch?v=PJ3qHIl-eOM][PJ3qHIl-eOM]] | OrgMode E02S03: Customized agenda views                   |
+| 33 |   |   | 11:11 | [[https://www.youtube.com/watch?v=u00pglDfgX4][u00pglDfgX4]] | OrgMode E02S02: Agenda view (advanced)                    |
+| 34 |   |   |  4:04 | [[https://www.youtube.com/watch?v=GcUVvlClo9k][GcUVvlClo9k]] | OrgMode E02S01: Tags                                      |
+| 35 |   |   | 10:02 | [[https://www.youtube.com/watch?v=gvgfmED8RD4][gvgfmED8RD4]] | OrgMode E01S05: Checklists                                |
+| 36 |   |   | 10:10 | [[https://www.youtube.com/watch?v=nbC-gL5wcf4][nbC-gL5wcf4]] | OrgMode E01S04: Repeating tasks                           |
+| 37 |   |   |  9:12 | [[https://www.youtube.com/watch?v=IofHvutUWV0][IofHvutUWV0]] | OrgMode E01S03: Schedule, deadlines & agenda views        |
+| 38 |   |   |  6:24 | [[https://www.youtube.com/watch?v=15w3I6MwCfs][15w3I6MwCfs]] | Orgmode E01S02: ToDo keywords                             |
+| 39 |   |   |  3:15 | [[https://www.youtube.com/watch?v=sQS06Qjnkcc][sQS06Qjnkcc]] | OrgMode E01S01: Headlines & outline mode                  |
+
+
+** Options: offset
+:PROPERTIES:
+:CREATED:  2025-02-15 07:00:10
+:END:
+
+You can start a playlist from a given offset (zero based)
+
+#+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PL8Bwba5vnQK14z96Gil86pLMDO2GnOhQ6:offset=125
+| 125 |   |   |  9:57 | [[https://www.youtube.com/watch?v=RvKK5vLQiuQ][RvKK5vLQiuQ]] | Emacs: exclude directories in Denote's Org dynamic blocks                  |
+| 126 |   |   | 14:41 | [[https://www.youtube.com/watch?v=vbWxT8tht9A][vbWxT8tht9A]] | Emacs: commands in popup frames with emacsclient                           |
+| 127 |   |   | 13:08 | [[https://www.youtube.com/watch?v=FMutOCOoFSQ][FMutOCOoFSQ]] | Emacs: custom Org clock report for my coaching                             |
+| 128 |   |   |  4:44 | [[https://www.youtube.com/watch?v=X3fEO1_QDHA][X3fEO1_QDHA]] | Emacs: tone down Org citations on demand                                   |
+| 129 |   |   | 24:19 | [[https://www.youtube.com/watch?v=27krzVtflQY][27krzVtflQY]] | Emacs: sequence notes with Denote (denote-sequence.el)                     |
+| 130 |   |   | 45:28 | [[https://www.youtube.com/watch?v=L0EJeN1fCYw][L0EJeN1fCYw]] | Emacs: Org todo and agenda basics                                          |
+| 131 |   |   | 24:53 | [[https://www.youtube.com/watch?v=Dkoy3NrLN9g][Dkoy3NrLN9g]] | Emacs: organise your init file (outline-minor-mode or Org literate config) |
+
+
+** Requirements
+:PROPERTIES:
+:CREATED:  2025-02-15 07:11:49
+:END:
+
+1. You need to have [[https://github.com/yt-dlp/yt-dlp][yt-dlp]] installed.
+
+2. Install the python script /yt-playlist-update-org.py/ in your prefer location.
+
+3. Install this module in your preferred location
+
+4. Add the following to your init. make sure that the variable /yt-playlist-update-org-playlist/
+   points to the correct location of your script
+
+#+begin_src emacs-lisp   :exports both
+(require 'yk-playlist-update)
+(setq  yt-playlist-update-org-playlist (expand-file-name "~/bin/yt-playlist-update-org.py"))
+   #+end_src
+
+
+5. Create an org file to test and add the following line. Make sure that the string #+YOUTUBE_UPDATE: 
+starts the line. Otherwise it is ignored.
+
+#+begin_example
+ #+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PL8Bwba5vnQK14z96Gil86pLMDO2GnOhQ6:offset=125
+#+end_example
+
+
+6. Run the command /yk-playlist-update-buffer/
+
+
+
+** Potential improvements
+:PROPERTIES:
+:CREATED:  2025-02-15 08:18:59
+:END:
+
+If you use offset and a video is deleted, no verification is made, and might result in skipping one video.
+
