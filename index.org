@@ -47,6 +47,12 @@ from current offset. Previous lines remain as-is. You can use the first column t
 An optional offset indicates where to start the list from (the script does not verify
 the contents of the playlist, it simply adds new videos based on the offset and current size of the table)
 
+*** Example: Rainer's org-mode tutorial
+:PROPERTIES:
+:CREATED:  2025-02-15 08:45:15
+:END:
+
+
 #+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE:offset=0
 |  0 |   |   |  2:53 | [[https://www.youtube.com/watch?v=EFKdMctqELk][EFKdMctqELk]] | My course is online on Udemy                              |
 |  1 |   |   | 16:03 | [[https://www.youtube.com/watch?v=be8TC-i-NpE][be8TC-i-NpE]] | Orgmode-TV: How do I plan my days                         |
@@ -95,6 +101,12 @@ the contents of the playlist, it simply adds new videos based on the offset and 
 :END:
 
 You can start a playlist from a given offset (zero based)
+
+*** Example 2: Prot's youtube videos since  125 video
+:PROPERTIES:
+:CREATED:  2025-02-15 08:45:15
+:END:
+
 
 #+YOUTUBE_UPDATE: https://www.youtube.com/playlist?list=PL8Bwba5vnQK14z96Gil86pLMDO2GnOhQ6:offset=125
 | 125 |   |   |  9:57 | [[https://www.youtube.com/watch?v=RvKK5vLQiuQ][RvKK5vLQiuQ]] | Emacs: exclude directories in Denote's Org dynamic blocks                  |
