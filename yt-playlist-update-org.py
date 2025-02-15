@@ -4,6 +4,8 @@
 #
 # Licensed under the GPLv3+
 #
+# Version 0.1
+#
 # The purpose of this script is to maintain a table in
 # an org file with the contents of a play list in youtube,
 # filter and keep those with #+YOUTUBE_UPDATE:

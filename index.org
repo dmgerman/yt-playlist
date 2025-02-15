@@ -1,5 +1,5 @@
 :PROPERTIES:
-:ID:       id-20250215-065829
+:ID:       yt-playlist-20250215-065829
 :TRIGGER:  org-gtd-next-project-action org-gtd-update-project-task!
 :END:
 
@@ -8,6 +8,8 @@
 :PROPERTIES:
 :CREATED:  2025-02-15 06:58:29
 :END:
+
+*I recommend you read this file in emacs*
 
 Youtube's interface is horrible if you want to keep track of a playlist
 
@@ -28,6 +30,8 @@ Use the following (the # must be in the first column)
 
 Where the offset indicates the first video to include in the list (in case you want to skip some).
 
+After calling /yt-playlist-update-buffer/ a table is created for each  instance of /#+YOUTUBE_UPDATE:/
+
 The table contains the following columns:
 
 - index (zero based)
@@ -38,7 +42,7 @@ The table contains the following columns:
 - title
 
 Every time the function youtube-update-org-playlist is run, the list is expanded
-from current offset (this means previous lines remain as-is).
+from current offset. Previous lines remain as-is. You can use the first column to take notes.
 
 An optional offset indicates where to start the list from (the script does not verify
 the contents of the playlist, it simply adds new videos based on the offset and current size of the table)
@@ -85,7 +89,6 @@ the contents of the playlist, it simply adds new videos based on the offset and 
 | 38 |   |   |  6:24 | [[https://www.youtube.com/watch?v=15w3I6MwCfs][15w3I6MwCfs]] | Orgmode E01S02: ToDo keywords                             |
 | 39 |   |   |  3:15 | [[https://www.youtube.com/watch?v=sQS06Qjnkcc][sQS06Qjnkcc]] | OrgMode E01S01: Headlines & outline mode                  |
 
-
 ** Options: offset
 :PROPERTIES:
 :CREATED:  2025-02-15 07:00:10
@@ -118,10 +121,9 @@ You can start a playlist from a given offset (zero based)
    points to the correct location of your script
 
 #+begin_src emacs-lisp   :exports both
-(require 'yk-playlist-update)
-(setq  yt-playlist-update-org-playlist (expand-file-name "~/bin/yt-playlist-update-org.py"))
+(require 'yt-playlist-update)
+(setq  yt-playlist-update-org-script (expand-file-name "~/bin/yt-playlist-update-org.py"))
    #+end_src
-
 
 5. Create an org file to test and add the following line. Make sure that the string #+YOUTUBE_UPDATE: 
 starts the line. Otherwise it is ignored.
@@ -132,7 +134,6 @@ starts the line. Otherwise it is ignored.
 
 
 6. Run the command /yk-playlist-update-buffer/
-
 
 
 ** Potential improvements
