@@ -9,7 +9,7 @@
 :CREATED:  2025-02-15 06:58:29
 :END:
 
-*I recommend you read this file in emacs*
+*I recommend you read this file in emacs so you can see the org markers*
 
 Youtube's interface is horrible if you want to keep track of a playlist
 
